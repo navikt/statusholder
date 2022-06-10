@@ -9,7 +9,7 @@ spec:
   image: {{ image }}
   port: 8080
   ingresses:
-    - https://statusholder.dev.intern.nav.no
+    - http://statusholder.dev.intern.nav.no
   replicas:
     min: 1
     max: 1
