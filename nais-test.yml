@@ -1,0 +1,18 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: statusholder
+  namespace: navdig
+  labels:
+    team: navdig
+spec:
+  replicas:
+    min: 1
+    max: 1
+  secureLogs:
+    enabled: true
+  image: {{ image }}
+  port: 8080
+  ingresses:
+    - https://statuholder.dev.intern.nav.no
+
