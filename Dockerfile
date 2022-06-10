@@ -22,6 +22,6 @@ EXPOSE 8080
 #RUN dir #Added
 
 
-COPY --from=maven statusholder/target/statusholder-0.0.1-SNAPSHOT.jar ./statusholder.jar
+COPY --from=maven target/statusholder-0.0.1-SNAPSHOT.jar ./statusholder.jar
 
 CMD ["java", "-jar", "./statusholder.jar"]
