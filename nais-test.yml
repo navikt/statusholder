@@ -6,13 +6,11 @@ metadata:
   labels:
     team: navdig
 spec:
-  replicas:
-    min: 1
-    max: 1
-  secureLogs:
-    enabled: true
   image: {{ image }}
   port: 8080
   ingresses:
-    - https://statuholder.dev.intern.nav.no
+    - https://statusholder.dev.intern.nav.no
+  replicas:
+    min: 1
+    max: 1
 
