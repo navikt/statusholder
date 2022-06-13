@@ -5,9 +5,8 @@ import no.nav.portal.statusholder.Dto.StatusDto;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 public class Controller {
@@ -15,12 +14,19 @@ public class Controller {
 
     Map<UUID, StatusDto> allServices = new HashMap();
 
+    @GetMapping("/status")
+    @ResponseBody
+    public List<StatusDto> getAllStatuse(@PathVariable UUID uuid) {
+        return new ArrayList<>(allServices.values());
+    }
+
 
     @GetMapping("/status/{uuid}")
     @ResponseBody
     public StatusDto getStatus(@PathVariable UUID uuid) {
         return allServices.get(uuid);
     }
+
 
 
     @RequestMapping(value = "/status", method = RequestMethod.POST, consumes = "application/json")
