@@ -16,7 +16,7 @@ public class Controller {
 
     @GetMapping("/status")
     @ResponseBody
-    public List<StatusDto> getAllStatuse(@PathVariable UUID uuid) {
+    public List<StatusDto> getAllStatuse() {
         return new ArrayList<>(allServices.values());
     }
 
