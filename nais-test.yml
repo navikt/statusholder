@@ -20,7 +20,7 @@ spec:
     accessPolicy:
         inbound:
             rules:
-                  application: portal
+                - application: portal
                   namespace: navdig
                   cluster: dev-gcp
         outbound:
