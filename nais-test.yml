@@ -10,7 +10,6 @@ spec:
     port: 8080
     ingresses:
         - https://statusholder.dev.intern.nav.no
-        - http://statusholder.dev.intern.nav.no
         - https://statusholder.dev-fss-pub.nais.io
     replicas:
         min: 1
