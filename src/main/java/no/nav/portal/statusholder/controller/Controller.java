@@ -35,6 +35,11 @@ public class Controller {
 
     }
 
+    @GetMapping("/checkSatusEndpoint")
+    public Boolean checkUrl(@RequestParam("url") String url) {
+        return Util.checkStatusEndpoint(url);
+    }
+
 
 
 }
