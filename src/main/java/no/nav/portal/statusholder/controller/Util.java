@@ -29,6 +29,7 @@ public class Util {
             return false;
         }
         JsonObject jsonObject = toJson(bodyString);
+        System.out.println(checkForStatus(jsonObject));
         return checkForStatus(jsonObject);
 
     }
