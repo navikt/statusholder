@@ -17,11 +17,15 @@ public class Util {
     public static boolean checkStatusEndpoint(String urlString){
         String bodyString;
         try {
+            System.out.println("url string: "+ urlString);
             HttpURLConnection connection = getConnectionToServicePollEndpoint(urlString);
+            System.out.println("check se 1");
             bodyString = readBody(connection);
+            System.out.println("check se 2");
             connection.disconnect();
         }
         catch (IOException e){
+            System.out.println("Error: " + e);
             return false;
         }
         JsonObject jsonObject = toJson(bodyString);
