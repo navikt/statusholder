@@ -9,7 +9,7 @@ spec:
     image: {{ image }}
     port: 8080
     ingresses:
-        - http://statusholder.intern.nav.no
+        - https://statusholder.prod-fss-pub.nais.io
     replicas:
         min: 1
         max: 1
