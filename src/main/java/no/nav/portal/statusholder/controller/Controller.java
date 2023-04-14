@@ -35,6 +35,14 @@ public class Controller {
 
     }
 
+    @RequestMapping(value = "/statuses", method = RequestMethod.POST, consumes = "application/json")
+    public void postStatuses(@RequestBody List<StatusDto> statusDto) {
+        statusDto.forEach(s->
+                allServices.put(s.getServiceId(),s)
+        );
+
+    }
+
     @GetMapping("/checkSatusEndpoint")
     public Boolean checkUrl(@RequestParam("url") String url) {
         return Util.checkStatusEndpoint(url);
