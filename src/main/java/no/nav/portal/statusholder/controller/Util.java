@@ -17,11 +17,8 @@ public class Util {
     public static boolean checkStatusEndpoint(String urlString){
         String bodyString;
         try {
-            System.out.println("url string: "+ urlString);
             HttpURLConnection connection = getConnectionToServicePollEndpoint(urlString);
-            System.out.println("check se 1");
             bodyString = readBody(connection);
-            System.out.println("check se 2");
             connection.disconnect();
         }
         catch (IOException e){
@@ -31,7 +28,6 @@ public class Util {
         JsonObject jsonObject = toJson(bodyString);
         System.out.println(checkForStatus(jsonObject));
         return checkForStatus(jsonObject);
-
     }
 
     private static HttpURLConnection getConnectionToServicePollEndpoint(String urlString) throws IOException {

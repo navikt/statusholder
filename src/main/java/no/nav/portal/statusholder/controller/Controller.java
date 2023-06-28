@@ -48,6 +48,11 @@ public class Controller {
         return Util.checkStatusEndpoint(url);
     }
 
+    @GetMapping("/isAlive")
+    @ResponseBody
+    public String isAlive() {
+        return "Status: Ok";
+    }
 
 
 }
