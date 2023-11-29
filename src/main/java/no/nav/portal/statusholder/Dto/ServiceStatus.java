@@ -5,7 +5,8 @@ import java.util.Optional;
 public enum ServiceStatus  {
     OK("OK"),
     DOWN("DOWN"),
-    ISSUE("ISSUE");
+    ISSUE("ISSUE"),
+    UNKNOWN("UNKNOWN");
 
     private String dbRepresentation;
 
