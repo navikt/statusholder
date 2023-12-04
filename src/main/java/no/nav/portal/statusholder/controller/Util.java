@@ -12,6 +12,7 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 
 public class Util {
+    //Util class for helper methods
 
 
     public static boolean checkStatusEndpoint(String urlString){
