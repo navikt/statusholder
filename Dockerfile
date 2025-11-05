@@ -1,4 +1,4 @@
-FROM maven:3.6.3-openjdk-17 as maven
+FROM maven:3.6.3-openjdk-17 AS maven
 
 COPY pom.xml pom.xml
 
@@ -10,7 +10,7 @@ RUN mvn dependency:go-offline -B
 
 RUN mvn package
 
-FROM openjdk:17
+FROM eclipse-temurin:17-jre
 
 #RUN dir #Added
 
