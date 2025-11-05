@@ -8,6 +8,8 @@ public class StatusDto {
 
     UUID serviceId;
 
+    String description;
+
 
     public StatusDto() {
     }
@@ -27,6 +29,15 @@ public class StatusDto {
 
     public StatusDto setServiceId(UUID serviceId) {
         this.serviceId = serviceId;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public StatusDto setDescription(String description) {
+        this.description = description;
         return this;
     }
 }
