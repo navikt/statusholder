@@ -1,27 +1,21 @@
-FROM maven:3.6.3-openjdk-17 AS maven
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jdk:openjdk-21-dev AS maven
 
-COPY pom.xml pom.xml
+# /home/build is the image's default workdir and is owned by the nonroot user;
+# --chown makes the copied sources writable so Maven can create target/.
+WORKDIR /home/build
 
-COPY . .
+COPY --chown=java:java . .
 
-RUN mvn clean install
+RUN ./mvnw clean package -B -DskipTests
 
-RUN mvn dependency:go-offline -B
-
-RUN mvn package
-
-FROM eclipse-temurin:17-jre
-
-#RUN dir #Added
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/jre:openjdk-21
 
 WORKDIR /adevguide
 
 EXPOSE 8080
 
+COPY --from=maven /home/build/target/statusholder-0.0.1-SNAPSHOT.jar ./statusholder.jar
 
-#RUN dir #Added
-
-
-COPY --from=maven target/statusholder-0.0.1-SNAPSHOT.jar ./statusholder.jar
-
-CMD ["java", "-jar", "./statusholder.jar"]
+# Chainguard jre sets ENTRYPOINT to /usr/bin/java, so override it here rather
+# than using CMD (which would be passed as args to /usr/bin/java).
+ENTRYPOINT ["java", "-jar", "./statusholder.jar"]
