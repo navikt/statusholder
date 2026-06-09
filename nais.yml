@@ -26,6 +26,9 @@ spec:
                 - application: statuspoll
                   namespace: navdig
                   cluster: prod-gcp
+                - application: statusplattform-api
+                  namespace: navdig
+                  cluster: prod-gcp
                 - application: portalserver
                   namespace: navdig
                   cluster: prod-gcp
