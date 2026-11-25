@@ -9,7 +9,7 @@ jobs:
         permissions:
             contents: read
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - name: Set up Java
               uses: actions/setup-java@v4
               with:
@@ -30,7 +30,7 @@ jobs:
         outputs:
             image: ${{ steps.docker-build-push.outputs.image }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - name: Build and push Docker image with SBOM
               id: docker-build-push
               uses: nais/docker-build-push@v0
@@ -49,7 +49,7 @@ jobs:
             contents: read
             id-token: write
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - uses: nais/deploy/actions/deploy@v2
               env:
                   CLUSTER: dev-fss
@@ -64,7 +64,7 @@ jobs:
             contents: read
             id-token: write
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - uses: nais/deploy/actions/deploy@v2
               env:
                   CLUSTER: prod-fss
