@@ -50,7 +50,7 @@ jobs:
             id-token: write
         steps:
             - uses: actions/checkout@v4
-            - uses: nais/deploy/actions/deploy@v2
+            - uses: nais/deploy/actions/deploy@v3
               env:
                   CLUSTER: dev-fss
                   RESOURCE: nais-test.yml
@@ -65,7 +65,7 @@ jobs:
             id-token: write
         steps:
             - uses: actions/checkout@v4
-            - uses: nais/deploy/actions/deploy@v2
+            - uses: nais/deploy/actions/deploy@v3
               env:
                   CLUSTER: prod-fss
                   RESOURCE: nais.yml
